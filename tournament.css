@@ -1,0 +1,38 @@
+body {
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.42;
+    color: #D8D8D8;
+    background-color: #272A33;
+}
+
+.hide {
+    display: none;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.col-sm-9 .col-sm-11 {
+    margin-left: 15px;
+}
+
+.form-control {
+    margin-left: 15px;
+}
+
+input.btn-primary {
+    background-color: #ff7f00;
+    color: #fff;
+}
+
+table {
+    text-align: center;
+    color: #000;
+}
+/* input.btn-primary:hover {
+    background-color: #ff7f00;
+    color: #fff;
+} */
+
