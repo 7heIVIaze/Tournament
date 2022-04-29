@@ -2,9 +2,9 @@ body {
     font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
     font-size: 14px;
     line-height: 1.42;
-    color: #D8D8D8;
-    background-color: #272A33;
-}
+    color: var(--body-text-color);
+    background-color: #2c2c2c;
+  }
 
 .hide {
     display: none;
@@ -29,6 +29,5 @@ input.btn-primary {
 
 table {
     text-align: center;
-    color: #000;
 }
 

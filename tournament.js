@@ -124,16 +124,9 @@ function round_robin() {
 function tournament() {
     var checkbox = $("#randomize_seed").is(':checked');
     var third = $("#tournament_thrid").is(':checked');
-    let result = document.getElementById("bracket");
+    var ro = "#ro";
     let j = 1;
-    $("#bracket").removeClass('hide');
-    $("#single_elimination").removeClass('hide');
     
-    if(!third) {
-        $("#thirdhead").addClass('hide');
-        $("#thirdplayer1").addClass('hide');
-        $("#thirdplayer2").addClass('hide');
-    }
 
     if($("#bracket_size").val() == 'names') {
         let txtarea = document.getElementById("tournament_participant");
@@ -152,7 +145,6 @@ function tournament() {
             }
     
             length = 4;
-    
         }
         else if(length<=8) { //만약 인원 수가 8명 이하일 경우엔 8명으로 맞춰줌
             for(let i = 0; i<8; i++) {
@@ -166,7 +158,6 @@ function tournament() {
             }
     
             length = 8;
-            
         }
         else if(length<=16) { //만약 인원 수가 16명 이하일 경우엔 16명으로 맞춰줌
             for(let i = 0; i<16; i++) {
@@ -175,17 +166,27 @@ function tournament() {
                 }
             }
 
-            length = 16
+            if(checkbox) {
+                shuffle(lines);
+            }
+
+            length = 16;
         }
         else {
             alert("16명 이하로 입력해주십시오.");
             location.reload();
         }
         
+        
+        $(ro+length).removeClass('hide');
+        if(third) {
+            $("#"+length+"thirdplace").removeClass('hide');
+            $("#"+length+"thirdplacebracket").removeClass('hide');
+        }
         for(let i = 0; i<length/2; i++) {
-            $("#r"+ length +"player"+j).val(lines[i]);
+            $("#r_"+ length +"_round_1_player_"+j).text(lines[i]);
             j++;
-            $("#r"+ length +"player"+j).val(lines[length-i-1]);
+            $("#r_"+ length +"_round_1_player_"+j).text(lines[length-i-1]);
             j++;
         } // 해당하는 브래킷에 값을 넣음
 
@@ -210,7 +211,6 @@ function tournament() {
             }
     
             length = 4;
-    
         }
         else if(length<=8) { //만약 인원 수가 8명 이하일 경우엔 8명으로 맞춰줌
             for(let i = 0; i<8; i++) {
@@ -224,7 +224,6 @@ function tournament() {
             }
     
             length = 8;
-            
         }
         else if(length<=16) { //만약 인원 수가 16명 이하일 경우엔 16명으로 맞춰줌
             for(let i = 0; i<16; i++) {
@@ -233,13 +232,18 @@ function tournament() {
                 }
             }
 
-            length = 16
+            length = 16;
         }
         
+        $(ro+length).removeClass('hide');   
+        if(third) {
+            $("#"+length+"thirdplace").removeClass('hide');
+            $("#"+length+"thirdplacebracket").removeClass('hide');
+        }
         for(let i = 0; i<length/2; i++) {
-            $("#r"+ length +"player"+j).val(lines[i]);
+            $("#r_"+ length +"_round_1_player_"+j).text(lines[i]);
             j++;
-            $("#r"+ length +"player"+j).val(lines[length-i-1]);
+            $("#r_"+ length +"_round_1_player_"+j).text(lines[length-i-1]);
             j++;
         } // 해당하는 브래킷에 값을 넣음
     }
@@ -247,12 +251,8 @@ function tournament() {
 
 function dueltournament() {
     var checkbox = $("#randomize_seed").is(':checked');
-    var third = $("#tournament_thrid").is(':checked');
-    let result = document.getElementById("bracket");
+    var ro="#dro";
     let j = 1;
-    $("#bracket").removeClass('hide');
-    $("#double_elimination").removeClass('hide');
-    
 
     if($("#bracket_size").val() == 'names') {
         let txtarea = document.getElementById("tournament_participant");
@@ -292,10 +292,11 @@ function dueltournament() {
             location.reload();
         }
         
+        $(ro+length).removeClass('hide');
         for(let i = 0; i<length/2; i++) {
-            $("#dr"+ length +"player"+j).val(lines[i]);
+            $("#dr_"+ length +"_round_1_player_"+j).val(lines[i]);
             j++;
-            $("#dr"+ length +"player"+j).val(lines[length-i-1]);
+            $("#dr_"+ length +"_round_1_player_"+j).val(lines[length-i-1]);
             j++;
         } // 해당하는 브래킷에 값을 넣음
 
@@ -337,25 +338,31 @@ function dueltournament() {
             
         }
         
+        $(ro+length).removeClass('hide');
         for(let i = 0; i<length/2; i++) {
-            $("#dr"+ length +"player"+j).val(lines[i]);
+            $("#dr_"+ length +"_round_1_player_"+j).val(lines[i]);
             j++;
-            $("#dr"+ length +"player"+j).val(lines[length-i-1]);
+            $("#dr_"+ length +"_round_1_player_"+j).val(lines[length-i-1]);
             j++;
         } // 해당하는 브래킷에 값을 넣음
     }
 }
 
-function advance( winner, loser, place ){
-	place.value = winner.value;
+function tmgonext(e, next) {
+    var team = $(e).text();
+    var nextid = "#" + next;
+    $(nextid).text(team);
 }
 
-function retreat( winner, loser, place ){
-	place.value = loser.value;
+function tmgodown(string1, string2) {
+    var e = "#"+string1;
+    var team = $(e).text();
+    var nextid = "#" + string2;
+    $(nextid).text(team);
 }
 
 function victory(obj) {
-    alert(obj.val()+"님이 우승하셨습니다!");
+    alert($(obj).text()+"님이 우승하셨습니다!");
 }
 
 function shuffle(array) {

@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tournament</title>
     <link rel="stylesheet" href="tournament.css">
+    <link rel="stylesheet" href="bracket.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="jquery-1.6.2.min.js"></script>
-    <script type="text/javascript" src="jquery.bracket.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="jquery.bracket.min.css" />
 </head>
 <body>
     <div class="title-top">
@@ -28,7 +26,7 @@
             <div class="form-group">
                 <label for="tournament_name" class="control-label">대회 이름</label>
                 <div class="col-sm-9">
-                    <input type="text" class="form-control" name="tournament[name]", 
+                    <input type="text" class="form-control" name="tournament[name]",
                     id="tournament_name", maxlength="60", size="60">
                 </div>
             </div>
@@ -43,7 +41,7 @@
                     <div id="3p_option">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="tournament[third_match]" 
+                                <input type="checkbox" name="tournament[third_match]"
                                 id="tournament_thrid" value="1" >
                                 3위 결정전 적용
                             </label>
@@ -52,7 +50,7 @@
                 </div>
                 <div class="form-group hide" id="round_robin_iteration">
                     <div class="col-sm-20">
-                        참여자는 각각 
+                        참여자는 각각
                         <select style="clear:none; display:inline; width: auto; margin: 0 5px;"
                         name="tournament[rr]" id="tournament_rr" class="form-control" >
                         <option value="1">한</option>
@@ -105,14 +103,14 @@
 
             </div>
         </fieldset>
-            
+
     </div>
-    
+
     <div id="name"><h1></h1></div>
     <div id="round_robin_result" class="hide" >
 
     </div>
-    
+
     <div id="bracket" class="hide">
         <div id="single_elimination" class="hide">
             <form name=tournament>
@@ -125,14 +123,14 @@
                         <td colspan=2 id="thirdhead" align="center">3/4위전</td>
                         <td colspan=2 align="center">우승</td>
                     </tr>
-                    
+
                     <tr bgcolor="ffffff">
                         <td align="center">
                             <input type="button" name="player1" id="r16player1" value=" " onclick="advance(this, this.form.player2, this.form.round1winner1);">
                         </td>
                         <!-- 16강(1경기 플레이어1) -->
                         <td rowspan="2" colspan="2" align="center">
-                            <input type="button" name="round1winner1" id="r8player1" value=" " onclick="advance(this, this.form.round1winner2, this.form.round2winner1);">	
+                            <input type="button" name="round1winner1" id="r8player1" value=" " onclick="advance(this, this.form.round1winner2, this.form.round2winner1);">
                         </td>
                         <!-- 8강(1경기 플레이어1) -->
                         <td rowspan="4" colspan="2" align="center">
@@ -158,7 +156,7 @@
                         </td>
                         <!-- 16강(1경기 플레이어2) -->
                     </tr>
-                    
+
                     <tr bgcolor="ffffff">
                         <td align="center">
                             <input type="button" name="player3" id="r16player3" value=" " onclick="advance(this, this.form.player4, this.form.round1winner2);">
@@ -169,7 +167,7 @@
                         </td>
                         <!-- 8강(1경기 플레이어2) -->
                     </tr>
-                    
+
                     <tr bgcolor="ffffff">
                         <td align="center">
                             <input type="button" name="player4" id="r16player4" value=" " onclick="advance(this, this.form.player3, this.form.round1winner2);">
@@ -218,7 +216,7 @@
                         </td>
                         <!-- 16강(5경기 플레이어1) -->
                         <td rowspan="2" colspan="2" align="center">
-                            <input type="button" name="round1winner5" id="r8player5" value=" " onclick="advance(this, this.form.round1winner6, this.form.round2winner3);">	
+                            <input type="button" name="round1winner5" id="r8player5" value=" " onclick="advance(this, this.form.round1winner6, this.form.round2winner3);">
                         </td>
                         <!-- 8강(3경기 플레이어1) -->
                         <td rowspan="4" colspan="2" align="center">
@@ -233,7 +231,7 @@
                             <input type="button" name="round3loser2" value=" ">
                         </td>
                         <!-- 3/4위전(플레이어2) -->
-                    
+
                     </tr>
                     <tr bgcolor="ffffff">
                         <td align="center">
@@ -251,7 +249,7 @@
                         </td>
                         <!-- 8강(3경기 플레이어2) -->
                     </tr>
-                    
+
                     <tr bgcolor="ffffff">
                         <td align="center">
                             <input type="button" name="player12" id="r16player12" value=" " onclick="advance(this, this.form.player11, this.form.round1winner6);">
@@ -310,7 +308,7 @@
                     <td colspan="2" align="center">결승</td>
                     <td colspan="2" align="center">우승</td>
                 </tr>
-                
+
                 <tr bgcolor="ffffff">
                     <td align="center">
                         <input type="button" name="player1" id="dr8player1" value=" " onclick="advance(this, this.form.player2, this.form.round1winner1), retreat(this, this.form.player2, this.form.round1loser1);">
@@ -342,7 +340,7 @@
                     </td>
                     <!-- 8강(1경기 플레이어2) -->
                 </tr>
-                
+
                 <tr bgcolor="ffffff">
                     <td align="center">
                         <input type="button" name="player3" id="dr8player3" value=" " onclick="advance(this, this.form.player4, this.form.round1winner2), retreat(this, this.form.player4, this.form.roundloser2);">
@@ -353,7 +351,7 @@
                     </td>
                     <!-- 승자조 1라운드(1경기 플레이어2) -->
                 </tr>
-                
+
                 <tr bgcolor="ffffff">
                     <td align="center">
                         <input type="button" name="player4" id="dr8player4" value=" " onclick="advance(this, this.form.player3, this.form.round1winner2), retreat(this, this.form.player3, this.form.round1loser2);">
@@ -379,7 +377,7 @@
                         <input type="button" name="player6" id="dr8player6" value=" " onclick="advance(this, this.form.player5, this.form.round1winner3), retreat(this, this.form.player5, this.form.round1loser3);">
                     </td>
                     <!-- 8강(3경기 플레이어2) -->
-                    
+
                 </tr>
                 <tr bgcolor="ffffff">
                     <td align="center">
@@ -406,7 +404,7 @@
                         패<br>자<br>조
                     </td>
                     <td colspan="2" align="center">
-                        <input type="button" name="round1loser1" value=" " onclick="advance(this, this.form.round1loser2, this.form.round2loser2);">	
+                        <input type="button" name="round1loser1" value=" " onclick="advance(this, this.form.round1loser2, this.form.round2loser2);">
                     </td>
                     <!-- 패자조 1라운드(1경기 플레이어1) -->
                     <td colspan="2" align="center">
@@ -422,7 +420,7 @@
                     </td>
                     <!-- 패자조 4라운드(플레이어1) -->
                 </tr>
-                
+
                 <tr bgcolor="ffffff">
                     <td colspan="2" align="center">
                         <input type="button" name="round1loser2" value=" " onclick="advance(this, this.form.round1loser1, this.form.round2loser2);">
@@ -433,7 +431,7 @@
                     </td>
                     <!-- 패자조 1라운드(1경기 플레이어2) -->
                 </tr>
-                
+
                 <tr bgcolor="ffffff">
                     <td colspan="2" align="center">
                         <input type="button" name="round1loser3" value=" " onclick="advance(this, this.form.round1loser4, this.form.round2loser4);">
@@ -468,9 +466,753 @@
                 </form>
         </div>
     </div>
-    
-    
+
+    <div id="brack">
+        <div class="fl-inner">
+            <div id="ro4" class="hide">
+                <div class="bracket-grid" style="grid-template-rows: repeat(28, var(--grid-row-height));
+                grid-template-columns: 0 minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em);">
+                    <div class="bracket-grid-header round1">
+                        <div class="bracket-header-content">4강</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_4_round_1_player_1" onclick="tmgonext(this, 'r_4_round_2_winner_1'), tmgodown('r_4_round_1_player_2', 'r_4_round_2_loser_1');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_4_round_1_player_2" onclick="tmgonext(this, 'r_4_round_2_winner_1'), tmgodown('r_4_round_1_player_1', 'r_4_round_2_loser_1');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_4_round_1_player_3" onclick="tmgonext(this, 'r_4_round_2_winner_2'), tmgodown('r_4_round_1_player_4', 'r_4_round_2_loser_2');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_4_round_1_player_4" onclick="tmgonext(this, 'r_4_round_2_winner_2'), tmgodown('r_4_round_1_player_3', 'r_4_round_2_loser_2');"></div>
+                    </div>
+
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 5;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+
+                    <div class="bracket-grid-header round2">
+                        <div class="bracket-header-content">결승</div>
+                    </div>
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_4_round_2_winner_1" onclick="tmgonext(this);">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_4_round_2_winner_2" onclick="tmgonext(this);">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2 hide" id="4thirdplace">3/4위전</div>
+                    <div class="round2 hide" style="grid-row: span 2;" id="4thirdplacebracket">
+                        <div class="bracket-team round2">
+                            <div class="bracket-team-name" id="r_4_round_2_loser_1">TBD</div>
+                        </div>
+                        <div class="bracket-team round2">
+                            <div class="bracket-team-name" id="r_4_round_2_loser_2">TBD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ro8" class="hide">
+                <div class="bracket-grid" style="grid-template-rows: repeat(28, var(--grid-row-height));
+                grid-template-columns: 0 minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em)
+                minmax(2em, 3em) minmax(8.25em, 12em);">
+                    <div class="bracket-grid-header round1">
+                        <div class="bracket-header-content">8강</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_1" onclick="tmgonext(this, 'r_8_round_2_winner_1');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_2" onclick="tmgonext(this, 'r_8_round_2_winner_1');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_3" onclick="tmgonext(this, 'r_8_round_2_winner_2');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_4" onclick="tmgonext(this, 'r_8_round_2_winner_2');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_5" onclick="tmgonext(this, 'r_8_round_2_winner_3');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_6" onclick="tmgonext(this, 'r_8_round_2_winner_3');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_7" onclick="tmgonext(this, 'r_8_round_2_winner_4');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_8_round_1_player_8" onclick="tmgonext(this, 'r_8_round_2_winner_4');"></div>
+                    </div>
+
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 5;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+
+                    <div class="bracket-grid-header round2">
+                        <div class="bracket-header-content">4강</div>
+                    </div>
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_8_round_2_winner_1" onclick="tmgonext(this, 'r_8_round_3_winner_1'), 
+                                tmgodown('r_8_round_2_winner_2', 'r_8_round_3_loser_1');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_8_round_2_winner_2" onclick="tmgonext(this, 'r_8_round_3_winner_1'), 
+                                tmgodown('r_8_round_2_winner_1', 'r_8_round_3_loser_1');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="grid-row: span 6;"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_8_round_2_winner_3" onclick="tmgonext(this, 'r_8_round_3_winner_2'), 
+                                tmgodown('r_8_round_2_winner_4', 'r_8_round_3_loser_2');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_8_round_2_winner_4" onclick="tmgonext(this, 'r_8_round_3_winner_2'),
+                                 tmgodown('r_8_round_2_winner_3', 'r_8_round_3_loser_2');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 8;"></div>
+                    <div class="bracket-line z-down round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-line round2" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round2" style="grid-row: span 5;"></div>
+
+                    <div class="bracket-grid-header round3">
+                        <div class="bracket-header-content">결승</div>
+                    </div>
+
+                    <div class="bracket-spacer round3" style="grid-row: span 9;"></div>
+                    <div class="bracket-spacer round3"></div>
+
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_8_round_3_winner_1" onclick="victory(this);">TBD</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_8_round_3_winner_2" onclick="victory(this);">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+
+                    <div class="bracket-spacer round3 hide" id="8thirdplace">3/4위전</div>
+                    <div class="round3 hide" style="grid-row: span 2;" id="8thirdplacebracket">
+                        <div class="bracket-team round3">
+                            <div class="bracket-team-name" id="r_8_round_3_loser_1">TBD</div>
+                        </div>
+                        <div class="bracket-team round3">
+                            <div class="bracket-team-name" id="r_8_round_3_loser_2">TBD</div>
+                        </div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+                </div>
+            </div>
+
+            <div id="ro16" class="hide">
+                <div class="bracket-grid" style="grid-template-rows: repeat(56, var(--grid-row-height));
+                            grid-template-columns: 0 minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) 
+                            minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em);">
+                    <div class="bracket-grid-header round1">
+                        <div class="bracket-header-content">16강</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_1" onclick="tmgonext(this, 'r_16_round_2_winner_1');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_2" onclick="tmgonext(this, 'r_16_round_2_winner_1');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_3" onclick="tmgonext(this, 'r_16_round_2_winner_2');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_4" onclick="tmgonext(this, 'r_16_round_2_winner_2');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_5" onclick="tmgonext(this, 'r_16_round_2_winner_3');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_6" onclick="tmgonext(this, 'r_16_round_2_winner_3');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_7" onclick="tmgonext(this, 'r_16_round_2_winner_4');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_8" onclick="tmgonext(this, 'r_16_round_2_winner_4');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_9" onclick="tmgonext(this, 'r_16_round_2_winner_5');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_10" onclick="tmgonext(this, 'r_16_round_2_winner_5');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_11" onclick="tmgonext(this, 'r_16_round_2_winner_6');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_12" onclick="tmgonext(this, 'r_16_round_2_winner_6');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_13" onclick="tmgonext(this, 'r_16_round_2_winner_7');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_14" onclick="tmgonext(this, 'r_16_round_2_winner_7');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_15" onclick="tmgonext(this, 'r_16_round_2_winner_8');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="r_16_round_1_player_16" onclick="tmgonext(this, 'r_16_round_2_winner_8');"></div>
+                    </div>
+
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 5;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>    
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>    
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-grid-header round2">
+                        <div class="bracket-header-content">8강</div>
+                    </div>
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_1" onclick="tmgonext(this, 'r_16_round_3_winner_1');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_2" onclick="tmgonext(this, 'r_16_round_3_winner_1');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2"></div>
+                    
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_3" onclick="tmgonext(this, 'r_16_round_3_winner_2');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_4" onclick="tmgonext(this, 'r_16_round_3_winner_2');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2"></div>
+
+                    <div class="bracket-spacer round2" style="grid-row: span 6;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_5" onclick="tmgonext(this, 'r_16_round_3_winner_3');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_6" onclick="tmgonext(this, 'r_16_round_3_winner_3');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="grid-row: span 6;"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_7" onclick="tmgonext(this, 'r_16_round_3_winner_4');">TBD</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="r_16_round_2_winner_8" onclick="tmgonext(this, 'r_16_round_3_winner_4');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 8;"></div>
+                    <div class="bracket-line z-down round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-line round2" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-line round2" style="grid-row: span 12;"></div>
+                    <div class="bracket-line z-down round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-line round2" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-spacer round2"></div>
+                    
+                    <div class="bracket-grid-header round3">
+                        <div class="bracket-header-content">4강</div>
+                    </div>
+
+                    <div class="bracket-spacer round3" style="grid-row: span 9;"></div>
+                    <div class="bracket-spacer round3"></div>
+
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_16_round_3_winner_1" onclick="tmgonext(this, 'r_16_round_4_winner_1'),
+                                    tmgodown('r_16_round_3_winner_2', 'r_16_round_4_loser_1');">TBD</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_16_round_3_winner_2" onclick="tmgonext(this, 'r_16_round_4_winner_1'), 
+                                    tmgodown('r_16_round_3_winner_1', 'r_16_round_4_loser_1');">TBD</div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3" style="grid-row: span 18;"></div>
+                    <div class="bracket-spacer round3"></div>
+
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_16_round_3_winner_3" onclick="tmgonext(this, 'r_16_round_4_winner_2'), 
+                                    tmgodown('r_16_round_3_winner_4', 'r_16_round_4_loser_2');">TBD</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="r_16_round_3_winner_4" onclick="tmgonext(this, 'r_16_round_4_winner_2'), 
+                                    tmgodown('r_16_round_3_winner_3', 'r_16_round_4_loser_2');">TBD</div>
+                    </div>
+
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-line round3" style="grid-row: span 14;"></div>
+                    <div class="bracket-line z-down round3" style="grid-row: span 11;"></div>
+                    <div class="bracket-line round3" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round3" style="grid-row: span 11;"></div>
+                    <div class="bracket-spacer round3"></div>
+
+                    <div class="bracket-grid-header round4">
+                        <div class="bracket-header-content">결승</div>
+                    </div>
+
+                    <div class="bracket-spacer round4" style="grid-row: span 21;"></div>
+                    <div class="bracket-spacer round4"></div>
+
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="r_16_round_4_winner_1" onclick="victory(this);">TBD</div>
+                    </div>
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="r_8_round_4_winner_2" onclick="victory(this);">TBD</div>
+                    </div>
+
+                    <div class="bracket-spacer round4" style="grid-row: span 2;"></div>
+
+                    <div class="bracket-spacer round4 hide" id="16thirdplace">3/4위전</div>
+                    <div class="round4 hide" style="grid-row: span 2;" id="16thirdplacebracket">
+                        <div class="bracket-team round4">
+                            <div class="bracket-team-name" id="r_16_round_4_loser_1">TBD</div>
+                        </div>
+                        <div class="bracket-team round4">
+                            <div class="bracket-team-name" id="r_16_round_4_loser_2">TBD</div>
+                        </div>
+                    </div>
+                    <div class="bracket-spacer round4"></div>
+
+                </div>
+            </div>
+
+            <div id="dro4" class="hide">
+                <div class="bracket-grid" style="grid-template-rows: repeat(50, var(--grid-row-height)); grid-template-columns: 0 
+        minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) 
+        minmax(8.25em, 12em);">
+                    <div class="bracket-grid-header round1">
+                        <div class="bracket-header-content">1라운드</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1" style="text-align: left;">4강</div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_4_round_1_player_1" onclick="tmgonext(this, 'dr_4_round_3_winner_1'),
+                        tmgodown('dr_4_round_1_player_2', 'dr_4_round_2_loser_1');">1</div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_4_round_1_player_2" onclick="tmgonext(this, 'dr_4_round_3_winner_1'),
+                        tmgodown('dr_4_round_1_player_1', 'dr_4_round_2_loser_1');">2</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_4_round_1_player_3" onclick="tmgonext(this, 'dr_4_round_3_winner_2'),
+                        tmgodown('dr_4_round_1_player_4', 'dr_4_round_2_loser_2');">3</div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_4_round_1_player_4" onclick="tmgonext(this, 'dr_4_round_3_winner_2'),
+                        tmgodown('dr_4_round_1_player_3', 'dr_4_round_2_loser_2');">4</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 4;"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-line round1"></div>
+
+                    <div class="bracket-grid-header round2">
+                        <div class="bracket-header-content">2라운드</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer horizontal round2"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer horizontal round2"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer round2" style="text-align: left;">패자조</div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_4_round_2_loser_1" onclick="tmgonext(this, 'dr_4_round_3_loser_2');">1경기 패자</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_4_round_2_loser_2" onclick="tmgonext(this, 'dr_4_round_3_loser_2');">2경기 패자</div>
+                    </div>
+
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 6;"></div>
+                    <div class="bracket-line horizontal round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line horizontal round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-line l-down round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line horizontal round2"></div>
+                    <div class="bracket-line round2"></div>
+                    
+                    <div class="bracket-grid-header round3">
+                        <div class="bracket-header-content">준결승</div>
+                    </div>
+                    <div class="bracket-spacer round3" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer round3" style="text-align: left;">승자조</div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_4_round_3_winner_1" onclick="tmgonext(this, 'dr_4_round_4_winner_1'),
+                        tmgodown('dr_4_round_3_winner_2', 'dr_4_round_3_loser_1');">1경기 승자</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_4_round_3_winner_2" onclick="tmgonext(this, 'dr_4_round_4_winner_1'),
+                        tmgodown('dr_4_round_3_winner_1', 'dr_4_round_3_loser_1');">2경기 승자</div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3" style="grid-row: span 4;"></div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_4_round_3_loser_1" onclick="tmgonext(this, 'dr_4_round_4_winner_2');">승자조 패자</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_4_round_3_loser_2" onclick="tmgonext(this, 'dr_4_round_4_winner_2');">패자조 승자</div>
+                    </div>
+
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-line round3" style="grid-row: span 8;"></div>
+                    <div class="bracket-line horizontal round3"></div>
+                    <div class="bracket-line round3" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round3" style="grid-row: span 7;"></div>
+
+                    <div class="bracket-grid-header round4">
+                        <div class="bracket-header-content">결승</div>
+                    </div>
+                    <div class="bracket-spacer round4" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="dr_4_round_4_winner_1" onclick="victory(this);">승자조 승자</div>
+                    </div>
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="dr_4_round_4_winner_2" onclick="victory(this);">최종전 승자</div>
+                    </div>
+                    <div class="bracket-spacer round4"></div>
+                </div>
+            </div>
+
+            <div id="dro8" class="hide">
+                <div class="bracket-grid" style="grid-template-rows: repeat(50, var(--grid-row-height)); grid-template-columns: 0 
+                minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) 
+                minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em) minmax(2em, 3em) minmax(8.25em, 12em);">
+                    <div class="bracket-grid-header round1">
+                        <div class="bracket-header-content">1라운드</div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1" style="text-align: left;">8강</div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_1" onclick="tmgonext(this, 'dr_8_round_2_winner_1'),
+                                    tmgodown('dr_8_round_1_player_2', 'dr_8_round_2_loser_1');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_2" onclick="tmgonext(this, 'dr_8_round_2_winner_1'), 
+                                    tmgodown('dr_8_round_1_player_1', 'dr_8_round_2_loser_1');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_3" onclick="tmgonext(this, 'dr_8_round_2_winner_2'), 
+                                    tmgodown('dr_8_round_1_player_4', 'dr_8_round_2_loser_2');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_4" onclick="tmgonext(this, 'dr_8_round_2_winner_2'), 
+                                    tmgodown('dr_8_round_1_player_3', 'dr_8_round_2_loser_2');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_5" onclick="tmgonext(this, 'dr_8_round_2_winner_3'), 
+                                    tmgodown('dr_8_round_1_player_6', 'dr_8_round_2_loser_3');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_6" onclick="tmgonext(this, 'dr_8_round_2_winner_3'), 
+                                    tmgodown('dr_8_round_1_player_5', 'dr_8_round_2_loser_3');"></div>
+                    </div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_7" onclick="tmgonext(this, 'dr_8_round_2_winner_4'), 
+                                    tmgodown('dr_8_round_1_player_8', 'dr_8_round_2_loser_4');"></div>
+                    </div>
+                    <div class="bracket-team round1">
+                        <div class="bracket-team-name" id="dr_8_round_1_player_8" onclick="tmgonext(this, 'dr_8_round_2_winner_4'), 
+                                    tmgodown('dr_8_round_1_player_7', 'dr_8_round_2_loser_4');"></div>
+                    </div>
+
+                    <div class="bracket-spacer round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 6;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 5;"></div>
+                    <div class="bracket-line z-down round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round1" style="grid-row: span 2;"></div>
+                    
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line round1"></div>
+
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line round1" style="grid-row: span 2;"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-line round1"></div>
+                    <div class="bracket-line l-down round1"></div>
+                    <div class="bracket-spacer round1"></div>
+                    
+
+                    <div class="bracket-grid-header round2">
+                        <div class="bracket-header-content">2라운드</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="text-align: left;">승자조</div>
+                    <div class="bracket-spacer round2" style="grid-row: span 3;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_winner_1" onclick="tmgonext(this, 'dr_8_round_5_winner_1'), 
+                                    tmgodown('dr_8_round_2_winner_2', 'dr_8_round_3_loser_1');">1경기 승자</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_winner_2" onclick="tmgonext(this, 'dr_8_round_5_winner_1'), 
+                                    tmgodown('dr_8_round_2_winner_1', 'dr_8_round_3_loser_1');">2경기 승자</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2" style="grid-row: span 7;"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_winner_3" onclick="tmgonext(this, 'dr_8_round_5_winner_2'), 
+                                    tmgodown('dr_8_round_2_winner_4', 'dr_8_round_3_loser_3');">3경기 승자</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_winner_4" onclick="tmgonext(this, 'dr_8_round_5_winner_2'), 
+                                    tmgodown('dr_8_round_2_winner_3', 'dr_8_round_3_loser_3');">4경기 승자</div>
+                    </div>
+
+                    <div class="bracket-spacer round2" style="grid-row: span 4;"></div>
+                    <div class="bracket-spacer round2" style="text-align: left;">패자조</div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_loser_1" onclick="tmgonext(this, 'dr_8_round_3_loser_2');">1경기 패자</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_loser_2" onclick="tmgonext(this, 'dr_8_round_3_loser_2');">2경기 패자</div>
+                    </div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_loser_3" onclick="tmgonext(this, 'dr_8_round_3_loser_4');">3경기 패자</div>
+                    </div>
+                    <div class="bracket-team round2">
+                        <div class="bracket-team-name" id="dr_8_round_2_loser_4" onclick="tmgonext(this, 'dr_8_round_3_loser_4');">4경기 패자</div>
+                    </div>
+
+                    <div class="bracket-spacer round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 9;"></div>
+                    <div class="bracket-line z-down round2" style="grid-row: span 5;"></div>
+                    <div class="bracket-line round2" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round2" style="grid-row: span 5;"></div>
+                    
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 6;"></div>
+                    <div class="bracket-line l-down round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line horizontal round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line round2" style="grid-row: span 2;"></div>
+                    <div class="bracket-line l-down round2"></div>
+                    <div class="bracket-line round2"></div>
+                    <div class="bracket-line horizontal round2"></div>
+                    <div class="bracket-spacer round2"></div>
+
+                    <div class="bracket-grid-header round3">
+                        <div class="bracket-header-content">3라운드</div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3" style="grid-row: span 9;"></div>
+                    <div class="bracket-spacer horizontal round3"></div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer horizontal round3"></div>
+                    
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3" style="grid-row: span 9;"></div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_8_round_3_loser_1" onclick="tmgonext(this, 'dr_8_round_4_loser_1');">승자조 1경기 패자</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_8_round_3_loser_2" onclick="tmgonext(this, 'dr_8_round_4_loser_1');">패자조 1경기 승자</div>
+                    </div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_8_round_3_loser_3" onclick="tmgonext(this, 'dr_8_round_4_loser_2');">승자조 2경기 패자</div>
+                    </div>
+                    <div class="bracket-team round3">
+                        <div class="bracket-team-name" id="dr_8_round_3_loser_4" onclick="tmgonext(this, 'dr_8_round_4_loser_2');">패자조 2경기 승자</div>
+                    </div>
+
+                    <div class="bracket-spacer round3"></div>
+                    <div class="bracket-line round3" style="grid-row: span 13;"></div>
+                    <div class="bracket-line horizontal round3"></div>
+                    <div class="bracket-line round3"></div>
+                    <div class="bracket-line horizontal round3"></div>
+                    <div class="bracket-line round3"></div>
+                    <div class="bracket-line round3"></div>
+                    <div class="bracket-line round3" style="grid-row: span 12;"></div>
+                    <div class="bracket-line z-down round3" style="grid-row: span 2;"></div>
+                    <div class="bracket-line round3" style="grid-row: span 2;"></div>
+                    <div class="bracket-line z-up round3" style="grid-row: span 2;"></div>
+
+                    <div class="bracket-grid-header round4">
+                        <div class="bracket-header-content">4라운드</div>
+                    </div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer round4" style="grid-row: span 9;"></div>
+                    <div class="bracket-spacer horizontal round4"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer horizontal round4"></div>
+                    
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer round4" style="grid-row: span 12;"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-spacer round4"></div>
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="dr_8_round_4_loser_1" onclick="tmgonext(this, 'dr_8_round_5_loser_2');">3라운드 1경기 승자</div>
+                    </div>
+                    <div class="bracket-team round4">
+                        <div class="bracket-team-name" id="dr_8_round_4_loser_2" onclick="tmgonext(this, 'dr_8_round_5_loser_2');">3라운드 2경기 승자</div>
+                    </div>
+                <div class="bracket-spacer round4"></div>
+
+                <div class="bracket-spacer round4"></div>
+                    <div class="bracket-line round4" style="grid-row: span 13;"></div>
+                    <div class="bracket-line horizontal round4"></div>
+                    <div class="bracket-line round4"></div>
+                    <div class="bracket-line horizontal round4"></div>
+                    <div class="bracket-line round4"></div>
+                    <div class="bracket-line round4"></div>
+                    <div class="bracket-line round4" style="grid-row: span 12;"></div>
+                    <div class="bracket-line l-down round4"></div>
+                    <div class="bracket-line horizontal round4" style="grid-row: span 2;"></div>
+                    
+                    <div class="bracket-grid-header round5">
+                        <div class="bracket-header-content">준결승</div>
+                    </div>
+                    <div class="bracket-spacer round5"></div>
+                    <div class="bracket-spacer round5"></div>
+                    <div class="bracket-spacer round5" style="grid-row: span 9;"></div>
+                    <div class="bracket-team round5">
+                        <div class="bracket-team-name" id="dr_8_round_5_winner_1" onclick="tmgonext(this, 'dr_8_round_6_winner_1'), 
+                        tmgodown('dr_8_round_5_winner_2', 'dr_8_round_5_loser_1');">승자조 1경기 승자</div>
+                    </div>
+                    <div class="bracket-team round5">
+                        <div class="bracket-team-name" id="dr_8_round_5_winner_2" onclick="tmgonext(this, 'dr_8_round_6_winner_1'), 
+                        tmgodown('dr_8_round_5_winner_1', 'dr_8_round_5_loser_1');">승자조 2경기 승자</div>
+                    </div>
+                    
+                    <div class="bracket-spacer round5"></div>
+                    <div class="bracket-spacer round5" style="grid-row: span 10;"></div>
+                    <div class="bracket-spacer round5"></div>
+                    <div class="bracket-spacer round5"></div>
+                    <div class="bracket-team round5">
+                        <div class="bracket-team-name" id="dr_8_round_5_loser_1" onclick="tmgonext(this, 'dr_8_round_6_winner_2');">준결승 패자</div>
+                    </div>
+                    <div class="bracket-team round5">
+                        <div class="bracket-team-name" id="dr_8_round_5_loser_2" onclick="tmgonext(this, 'dr_8_round_6_winner_2');">4라운드 승자</div>
+                    </div>
+                <div class="bracket-spacer round5"></div>
+
+                <div class="bracket-line round5"></div>
+                <div class="bracket-line round5" style="grid-row: span 13;"></div>
+                <div class="bracket-line round5"></div>
+                <div class="bracket-line z-down round5" style="grid-row: span 7;"></div>
+                <div class="bracket-line round5" style="grid-row: span 2;"></div>
+                <div class="bracket-line z-up round5" style="grid-row: span 8;"></div>
+                <div class="bracket-spacer round5"></div>
+
+                    <div class="bracket-grid-header round6">
+                        <div class="bracket-header-content">결승</div>
+                    </div>
+                    <div class="bracket-spacer round6"></div>
+                    <div class="bracket-spacer round6" style="grid-row: span 18;"></div>
+                    <div class="bracket-team round6">
+                        <div class="bracket-team-name" id="dr_8_round_6_winner_1" onclick="victory(this);">준결승 승자</div>
+                    </div>
+                    <div class="bracket-team round6">
+                        <div class="bracket-team-name" id="dr_8_round_6_winner_1" onclick="victory(this);">최종전 승자</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="tournament.js"></script>
-    
+
 </body>
 </html>
