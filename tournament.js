@@ -50,9 +50,10 @@ function participant(obj) {
 
 function build_tournament() {
     var type = $("#tournament_type").val();
-    
     var name = $("#tournament_name").val();
-    document.getElementById("name").innerHTML ='<div class="form-group"> <input type="reset" value="재생성" onclick="location.reload()"></div>' +"<h1 style=\"text-align: flex\">"+ name +"</h1>" ;
+    document.getElementById("name").innerHTML ='<div class="form-group"> <input type="reset" class="btn-primary" value="재생성" onclick="location.reload()"></div>' +"<h1 style=\"text-align: flex\">"+ name +"</h1>" ;
+    $("#result").removeClass('hide');
+
     if(type == 'round robin') {
         round_robin();
     }
