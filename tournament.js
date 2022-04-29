@@ -294,9 +294,9 @@ function dueltournament() {
         
         $(ro+length).removeClass('hide');
         for(let i = 0; i<length/2; i++) {
-            $("#dr_"+ length +"_round_1_player_"+j).val(lines[i]);
+            $("#dr_"+ length +"_round_1_player_"+j).text(lines[i]);
             j++;
-            $("#dr_"+ length +"_round_1_player_"+j).val(lines[length-i-1]);
+            $("#dr_"+ length +"_round_1_player_"+j).text(lines[length-i-1]);
             j++;
         } // 해당하는 브래킷에 값을 넣음
 
